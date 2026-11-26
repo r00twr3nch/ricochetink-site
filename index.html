@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ricochet Ink — bounce, paint, break</title>
+  <meta name="description" content="Ricochet Ink is a physics puzzle where the angle is everything. Bounce the ball, paint the walls and break cubes of the same color. For iPhone and Android.">
+  <meta name="theme-color" content="#0b0a12">
+  <link rel="canonical" href="https://ricochetink.com/">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ricochet Ink">
+  <meta property="og:description" content="Bounce the ball, paint the walls, break cubes of the same color.">
+  <meta property="og:url" content="https://ricochetink.com/">
+  <meta property="og:image" content="https://ricochetink.com/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/Oxanium-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('lang'); } catch (e) {}
+      var lang = saved || ((navigator.language || '').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en');
+      document.documentElement.lang = lang;
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-row">
+      <a class="brand" href="#top" aria-label="Ricochet Ink">
+        <span class="inks" aria-hidden="true"><i class="c"></i><i class="m"></i><i class="a"></i></span>
+        Ricochet Ink
+      </a>
+      <nav class="links" aria-label="Main">
+        <a href="#how"><span data-l="en">How to play</span><span data-l="tr">Nasıl oynanır</span></a>
+        <a href="#inside"><span data-l="en">Features</span><span data-l="tr">Özellikler</span></a>
+        <a href="#privacy"><span data-l="en">Privacy</span><span data-l="tr">Gizlilik</span></a>
+      </nav>
+      <div class="nav-end">
+        <button class="lang" type="button" data-lang-toggle aria-label="Change language">
+          <span data-l="en">TR</span><span data-l="tr">EN</span>
+        </button>
+        <a class="btn btn-small" href="#download"><span data-l="en">Get the game</span><span data-l="tr">İndir</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>
+            <span data-l="en">Bounce the ball, paint the walls, break cubes of the same color</span>
+            <span data-l="tr">Topu sektir, duvarları boya, aynı renkteki küpleri kır</span>
+          </h1>
+          <p class="lead">
+            <span data-l="en">A physics puzzle where the angle is everything. No power meter, no luck. Find the right angle and the right color order.</span>
+            <span data-l="tr">Açının her şey olduğu bir fizik bulmacası. Güç göstergesi yok, şans yok. Doğru açıyı ve doğru renk sırasını bul.</span>
+          </p>
+          <div class="actions">
+            <a class="btn" href="#download"><span data-l="en">Get the game</span><span data-l="tr">Oyunu indir</span></a>
+            <a class="btn btn-quiet" href="#how"><span data-l="en">How to play</span><span data-l="tr">Nasıl oynanır</span></a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="phone">
+            <canvas data-scene="hero" width="360" height="600" role="img" aria-label="Ricochet Ink gameplay: a ball bounces off the walls, paints them and breaks cubes of its own color"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="wrap">
+        <header class="section-head">
+          <h2><span data-l="en">Three rules, 35 levels</span><span data-l="tr">Üç kural, 35 bölüm</span></h2>
+          <p class="sub">
+            <span data-l="en">Pull back, release, watch it ricochet. Everything else is planning.</span>
+            <span data-l="tr">Geri çek, bırak, sekişini izle. Gerisi tamamen plan.</span>
+          </p>
+        </header>
+        <ol class="rules">
+          <li class="rule">
+            <div class="board"><canvas data-scene="bounce" width="320" height="320" role="img" aria-label="The ball passes through a cube, bounces off the wall and breaks it on the way back"></canvas></div>
+            <div class="rule-text">
+              <span class="num">01</span>
+              <h3><span data-l="en">Bounce first</span><span data-l="tr">Önce sektir</span></h3>
+              <p><span data-l="en">A cube only breaks after the ball has bounced off a wall. Straight shots pass right through.</span><span data-l="tr">Küp ancak top bir duvardan sektikten sonra kırılır. Düz atış içinden geçip gider.</span></p>
+            </div>
+          </li>
+          <li class="rule">
+            <div class="board"><canvas data-scene="paint" width="320" height="320" role="img" aria-label="The ball paints every wall it hits in its own color"></canvas></div>
+            <div class="rule-text">
+              <span class="num">02</span>
+              <h3><span data-l="en">Every hit paints</span><span data-l="tr">Her çarpış boyar</span></h3>
+              <p><span data-l="en">Each wall the ball hits takes its color, and the ball only breaks cubes of its own color.</span><span data-l="tr">Top çarptığı her duvarı kendi rengine boyar ve yalnızca kendi rengindeki küpleri kırar.</span></p>
+            </div>
+          </li>
+          <li class="rule">
+            <div class="board"><canvas data-scene="plan" width="320" height="320" role="img" aria-label="A shot ends on a painted wall, the next shot avoids it and clears the cube"></canvas></div>
+            <div class="rule-text">
+              <span class="num">03</span>
+              <h3><span data-l="en">Plan the paint</span><span data-l="tr">Boyayı planla</span></h3>
+              <p><span data-l="en">Hit a painted wall and the shot is over. One color's paint can block another color's path.</span><span data-l="tr">Boyalı duvara çarparsan atış biter. Bir rengin boyası diğerinin yolunu kapatabilir.</span></p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="inside">
+      <div class="wrap inside-grid">
+        <header class="section-head">
+          <h2><span data-l="en">What's inside</span><span data-l="tr">Oyunda neler var</span></h2>
+          <p class="sub">
+            <span data-l="en">Short levels you can finish on a bus ride, and a few that will take longer.</span>
+            <span data-l="tr">Bir otobüs yolculuğunda bitecek kısa bölümler, bir de uzun uzun düşündürecek birkaç tane.</span>
+          </p>
+        </header>
+        <dl class="features">
+          <div class="feature">
+            <dt><span data-l="en">35 handcrafted levels</span><span data-l="tr">35 el yapımı bölüm</span></dt>
+            <dd><span data-l="en">Three zones of rising challenge: Neon Entry, Multi-Ink and Master Maze.</span><span data-l="tr">Giderek zorlaşan üç bölge: Neon Entry, Multi-Ink ve Master Maze.</span></dd>
+          </div>
+          <div class="feature">
+            <dt><span data-l="en">Only the angle matters</span><span data-l="tr">Sonucu yalnızca açı belirler</span></dt>
+            <dd><span data-l="en">Every shot has the same speed. Where you aim is the only thing that changes the outcome.</span><span data-l="tr">Her atışın hızı aynı. Sonucu değiştiren tek şey nereye nişan aldığın.</span></dd>
+          </div>
+          <div class="feature">
+            <dt><span data-l="en">Up to three colors</span><span data-l="tr">Üç renge kadar</span></dt>
+            <dd><span data-l="en">Later levels ask you to clear cyan, magenta and amber cubes in the right order.</span><span data-l="tr">İleri bölümlerde camgöbeği, pembe ve kehribar küpleri doğru sırayla temizlemen gerekir.</span></dd>
+          </div>
+          <div class="feature">
+            <dt><span data-l="en">Three stars per level</span><span data-l="tr">Bölüm başına üç yıldız</span></dt>
+            <dd><span data-l="en">Every level has a flawless solution. Stars unlock seven new ball designs.</span><span data-l="tr">Her bölümün kusursuz bir çözümü var. Yıldızlar yedi yeni top tasarımının kilidini açar.</span></dd>
+          </div>
+          <div class="feature">
+            <dt><span data-l="en">Hint and extra shot</span><span data-l="tr">İpucu ve ek atış</span></dt>
+            <dd><span data-l="en">Stuck? Watch a short ad to see a hint or get one more shot after losing.</span><span data-l="tr">Takıldın mı? Kısa bir reklam izleyerek ipucu görebilir ya da kaybettikten sonra bir atış daha alabilirsin.</span></dd>
+          </div>
+          <div class="feature">
+            <dt><span data-l="en">No account</span><span data-l="tr">Hesap yok</span></dt>
+            <dd><span data-l="en">No sign-in. Your progress stays on your device and the game plays offline.</span><span data-l="tr">Giriş gerekmez. İlerlemen cihazında kalır, oyun çevrimdışı oynanır.</span></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section download" id="download">
+      <div class="wrap download-row">
+        <img class="app-icon" src="assets/icon.png" width="96" height="96" alt="Ricochet Ink app icon">
+        <div class="download-copy">
+          <h2><span data-l="en">For iPhone and Android</span><span data-l="tr">iPhone ve Android için</span></h2>
+          <p class="sub"><span data-l="en">Free to play. Available on the App Store and Google Play soon.</span><span data-l="tr">Ücretsiz. Çok yakında App Store ve Google Play'de.</span></p>
+        </div>
+        <div class="stores">
+          <!-- Mağaza bağlantıları yayınlanınca href'i doldurun ve aria-disabled'ı kaldırın -->
+          <a class="store" href="#download" aria-disabled="true">
+            <span class="store-name">App Store</span>
+            <span class="store-note"><span data-l="en">Coming soon</span><span data-l="tr">Yakında</span></span>
+          </a>
+          <a class="store" href="#download" aria-disabled="true">
+            <span class="store-name">Google Play</span>
+            <span class="store-note"><span data-l="en">Coming soon</span><span data-l="tr">Yakında</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section privacy" id="privacy">
+      <div class="wrap privacy-grid">
+        <header class="privacy-head">
+          <h2><span data-l="en">Privacy policy</span><span data-l="tr">Gizlilik politikası</span></h2>
+          <p class="meta"><span data-l="en">Last updated 26 November 2026</span><span data-l="tr">Son güncelleme 26 Kasım 2026</span></p>
+        </header>
+
+        <article class="policy" data-l="en">
+          <p>Ricochet Ink is a physics puzzle game developed by [COMPANY NAME] ("we"). The game is intended for players of all ages, including children. This policy explains what data the game and the services inside it handle.</p>
+
+          <h3>Data we collect</h3>
+          <p>None. The game has no accounts, no sign-in, no chat and no user-generated content. Your level progress, stars and unlocked ball designs are stored only on your device and are never sent to us. Uninstalling the game deletes them.</p>
+
+          <h3>Advertising</h3>
+          <p>The iPhone and Android versions show ads served by Google AdMob: an optional rewarded ad when you ask for a hint or an extra shot, and a short interstitial ad after every few completed levels. Ads are never shown while you are aiming.</p>
+          <p>Ad requests are marked as child-directed. Ads are limited to content suitable for general audiences (rating G), and they are not personalized based on your interests. On Android the game does not request access to the advertising ID.</p>
+          <p>To serve ads, measure them and prevent fraud, the Google Mobile Ads SDK may collect limited information such as your IP address, device type and operating system, and how you interact with an ad. Google processes this information under its own policies: <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">how Google uses information from apps that use its services</a>.</p>
+          <p>The game contains no analytics and no other third-party services. Apart from loading ads, it does not connect to the internet, and it can be played offline.</p>
+
+          <h3>Children's privacy</h3>
+          <p>We do not knowingly collect personal information from children. The game is designed to comply with the US Children's Online Privacy Protection Act (COPPA), the Google Play Families policy and applicable local law, including the GDPR and Turkey's KVKK.</p>
+
+          <h3>Contact</h3>
+          <p>Questions about this policy: [EMAIL]</p>
+          <p>We may update this policy. Changes will be published on this page with a new date.</p>
+        </article>
+
+        <article class="policy" data-l="tr">
+          <p>Ricochet Ink, [ŞİRKET ADI] ("biz") tarafından geliştirilen bir fizik bulmaca oyunudur. Oyun, çocuklar dahil her yaştan oyuncuya yöneliktir. Bu politika, oyunun ve içindeki hizmetlerin hangi verileri işlediğini açıklar.</p>
+
+          <h3>Bizim topladığımız veriler</h3>
+          <p>Hiçbiri. Oyunda hesap, giriş, sohbet ya da kullanıcıların paylaştığı içerik yoktur. Bölüm ilerlemen, yıldızların ve açtığın top tasarımları yalnızca cihazında saklanır ve bize gönderilmez. Oyunu sildiğinde bu bilgiler de silinir.</p>
+
+          <h3>Reklam</h3>
+          <p>iPhone ve Android sürümleri Google AdMob üzerinden reklam gösterir: ipucu ya da ek atış istediğinde isteğe bağlı bir ödüllü reklam ve birkaç bölümde bir kısa bir geçiş reklamı. Nişan alırken asla reklam gösterilmez.</p>
+          <p>Reklam istekleri çocuklara yönelik olarak işaretlenir. Reklamlar genel izleyiciye uygun içerikle (G derecesi) sınırlıdır ve ilgi alanlarına göre kişiselleştirilmez. Android'de oyun reklam kimliğine erişim istemez.</p>
+          <p>Reklamları sunmak, ölçmek ve sahtekârlığı önlemek için Google Mobile Ads SDK; IP adresi, cihaz türü ve işletim sistemi, reklamla etkileşim gibi sınırlı bilgiler toplayabilir. Google bu bilgileri kendi politikalarına göre işler: <a href="https://policies.google.com/privacy?hl=tr" rel="noopener">Google Gizlilik Politikası</a> ve <a href="https://policies.google.com/technologies/partner-sites?hl=tr" rel="noopener">Google'ın, hizmetlerini kullanan uygulamalardan gelen bilgileri nasıl kullandığı</a>.</p>
+          <p>Oyunda analiz aracı ya da başka bir üçüncü taraf hizmeti yoktur. Reklam yüklemek dışında internete bağlanmaz, çevrimdışı oynanabilir.</p>
+
+          <h3>Çocukların gizliliği</h3>
+          <p>Çocuklardan bilerek kişisel bilgi toplamıyoruz. Oyun; ABD Çocukların Çevrimiçi Gizliliğini Koruma Yasası (COPPA), Google Play Aileler politikası ve KVKK ile GDPR dahil ilgili mevzuata uygun olacak şekilde tasarlanmıştır.</p>
+
+          <h3>İletişim</h3>
+          <p>Bu politikayla ilgili sorular için: [E-POSTA]</p>
+          <p>Bu politikayı güncelleyebiliriz. Değişiklikler yeni tarihle bu sayfada yayımlanır.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-row">
+      <span class="brand brand-small">
+        <span class="inks" aria-hidden="true"><i class="c"></i><i class="m"></i><i class="a"></i></span>
+        Ricochet Ink
+      </span>
+      <span class="muted">© 2026 <span data-l="en">[COMPANY NAME]</span><span data-l="tr">[ŞİRKET ADI]</span></span>
+      <a href="#privacy"><span data-l="en">Privacy policy</span><span data-l="tr">Gizlilik politikası</span></a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('[data-lang-toggle]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var next = document.documentElement.lang === 'tr' ? 'en' : 'tr';
+        document.documentElement.lang = next;
+        try { localStorage.setItem('lang', next); } catch (e) {}
+      });
+    });
+  </script>
+  <script src="game.js" defer></script>
+</body>
+</html>
