@@ -37,8 +37,9 @@ Alan adı sağlayıcısında:
 
 DNS yayıldıktan sonra repo ayarlarında *Pages → Enforce HTTPS* açılır.
 
-## Oyun sahneleri
+## Animasyonlar
 
-Sahneler `game.js` içindeki `SCENES` nesnesinde tanımlıdır. Atış açıları sabittir (`deg`).
-Bir sahneyi değiştirirseniz o atışın `deg` değerini silin, sayfayı açıp konsolda
-`RicochetInk.check()` çalıştırın; çözücünün bulduğu açıyı `deg` olarak geri yazın.
+Animasyonlar `game.js` içindeki `SCENES` nesnesinde tanımlıdır. Her deneme (`cycles`) bir yol
+(`path`, köşe noktaları) ve küplerden (`cubes`) oluşur. Duvarlar köşe noktalarına yansıma açısına
+göre otomatik yerleşir; yolu değiştirmek yeterlidir. Küpleri yolun üstüne, ilk sekmeden sonraki bir
+parçaya koyun. Kare kare denemek için konsolda `RicochetInk.advance(1.5)` sahneleri ilerletir.

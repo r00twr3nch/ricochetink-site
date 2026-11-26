@@ -172,20 +172,10 @@ h1 {
 .actions { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; }
 
 .hero-visual { display: flex; justify-content: center; animation: rise var(--enter) var(--ease) 80ms both; }
-.phone {
-  width: min(380px, 100%);
-  padding: 12px;
-  border-radius: 44px;
-  background: #050409;
-  border: 1px solid var(--line-strong);
-  box-shadow: 0 40px 80px -24px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-}
-.phone canvas {
-  width: 100%;
-  aspect-ratio: 360 / 600;
+.hero-canvas {
+  width: min(560px, 100%);
+  aspect-ratio: 560 / 600;
   height: auto;
-  border-radius: 32px;
-  background: #050409;
 }
 
 @keyframes rise {
